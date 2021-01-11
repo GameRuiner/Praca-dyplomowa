@@ -5,10 +5,20 @@ using UnityEngine.EventSystems;
 
 public class NumberSlot : MonoBehaviour, IDropHandler
 {
+    private GameManager gameManager;
+
+    private void Awake() {
+        gameManager =  GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
+
+    }
     public void OnDrop(PointerEventData eventData) {
-        Debug.Log("OnDrop");
         if (eventData.pointerDrag != null) {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            if (eventData.pointerDrag.name == "2") {
+                gameManager.LevelPassed();
+            } else {
+                gameManager.LevelFailed();
+            }
         }
     }
 }
