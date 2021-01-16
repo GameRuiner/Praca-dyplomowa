@@ -14,7 +14,22 @@ public class GameManager : MonoBehaviour
     public GameObject passPanel;
 
     public bool inMenu = false;
-    
+
+    public static GameManager instance = null;
+    int sceneIndex, levelPassed;
+
+    void Start()
+    {
+        if (instance == null)
+			instance = this;
+		else if (instance != this)
+			Destroy (gameObject);
+        
+        sceneIndex = SceneManager.GetActiveScene ().buildIndex - 1;
+		levelPassed = PlayerPrefs.GetInt ("LevelPassed");
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -44,7 +59,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void LevelPassed() {
+        Debug.Log(PlayerPrefs.GetInt ("LevelPassed"));
         collisionToPass = -1;
+        if (levelPassed < sceneIndex)
+			PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
         inMenu = true;
         passPanel.gameObject.SetActive(true);
     }
