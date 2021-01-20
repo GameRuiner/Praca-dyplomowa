@@ -9,9 +9,13 @@ public class GameManager : MonoBehaviour
     public int collisionToPass = 4;
 
     public bool levelFailed = false;
+    public bool levelComplete = false;
 
     public GameObject failPanel;
     public GameObject passPanel;
+
+    public AudioSource winSound;
+    public AudioSource loseSound;
 
     public bool inMenu = false;
 
@@ -33,7 +37,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (collisionToPass == 0) {
+        if (levelComplete) {
              LevelPassed();
         }
         if (levelFailed) {
@@ -46,6 +50,11 @@ public class GameManager : MonoBehaviour
         inMenu = false;
     }
 
+    public void Back ()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void Next() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         inMenu = false;
@@ -53,17 +62,19 @@ public class GameManager : MonoBehaviour
 
 
     public void LevelFailed() {
+        loseSound.Play();
         levelFailed = false;
         inMenu = true;
         failPanel.gameObject.SetActive(true);
     }
 
     public void LevelPassed() {
-        Debug.Log(PlayerPrefs.GetInt ("LevelPassed"));
-        collisionToPass = -1;
+        winSound.Play();
+        inMenu = true;
+        levelComplete = false;  
         if (levelPassed < sceneIndex)
 			PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
-        inMenu = true;
+        
         passPanel.gameObject.SetActive(true);
     }
     

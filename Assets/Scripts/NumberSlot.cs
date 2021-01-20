@@ -15,9 +15,9 @@ public class NumberSlot : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null) {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             if (eventData.pointerDrag.name == "2") {
-                gameManager.LevelPassed();
+                gameManager.levelComplete = true;
             } else {
-                gameManager.LevelFailed();
+                gameManager.levelComplete = false;
             }
         }
     }

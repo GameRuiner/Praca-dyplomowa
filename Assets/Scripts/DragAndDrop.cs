@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    [SerializeField] private Canvas canvas;
+    [SerializeField] public Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
 

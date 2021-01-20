@@ -20,6 +20,9 @@ public class Collision : MonoBehaviour
         if (other.tag == "checkPoint") {
             other.GetComponent<Collider>().enabled = false;
             gameManager.collisionToPass -= 1;
+            if (gameManager.collisionToPass == 0) {
+                gameManager.levelComplete = true;
+            }
         }
         if (other.tag == "failPoint") {
             other.GetComponent<Collider>().enabled = false;
