@@ -7,6 +7,8 @@ public class NumberSlot : MonoBehaviour, IDropHandler
 {
     private GameManager gameManager;
 
+    public string rightAnswer;
+
     private void Awake() {
         gameManager =  GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
 
@@ -14,7 +16,7 @@ public class NumberSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData) {
         if (eventData.pointerDrag != null) {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            if (eventData.pointerDrag.name == "2") {
+            if (eventData.pointerDrag.name == rightAnswer) {
                 gameManager.levelComplete = true;
             } else {
                 gameManager.levelComplete = false;
