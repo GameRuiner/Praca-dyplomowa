@@ -7,20 +7,24 @@ using UnityEngine.SceneManagement;
 public class SelectLevelMenu : MonoBehaviour
 {
     int levelPassed;
-    public Button level02Button, level03Button;
+    public Button level02Button, level03Button, level04Button;
 
-    void Start () {
+    void Awake () {
 		levelPassed = PlayerPrefs.GetInt ("LevelPassed");
+		Debug.Log(levelPassed);
 		level02Button.interactable = false;
 		level03Button.interactable = false;
+		level04Button.interactable = false;
 
 		switch (levelPassed) {
+		case 3:
+			level04Button.interactable = true;
+			goto case 2;
+		case 2:
+			level03Button.interactable = true;
+			goto case 1;
 		case 1:
 			level02Button.interactable = true;
-			break;
-		case 2:
-			level02Button.interactable = true;
-			level03Button.interactable = true;
 			break;
 		}
     }

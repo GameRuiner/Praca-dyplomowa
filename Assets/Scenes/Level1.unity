@@ -1505,10 +1505,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinSound
       objectReference: {fileID: 0}
-    - target: {fileID: 5939696157424859343, guid: ed088ee6e035d3c459cc5f774916e485, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed088ee6e035d3c459cc5f774916e485, type: 3}
 --- !u!1001 &7572478795223922417
