@@ -7,10 +7,14 @@ public class NumberSlot : MonoBehaviour, IDropHandler
 {
     private GameManager gameManager;
 
+    private AudioSource wrongAnswerSound;
+
     public string rightAnswer;
 
     private void Awake() {
         gameManager =  GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
+        wrongAnswerSound = GetComponent<AudioSource>();
+
 
     }
     public void OnDrop(PointerEventData eventData) {
@@ -20,7 +24,17 @@ public class NumberSlot : MonoBehaviour, IDropHandler
                 gameManager.levelComplete = true;
             } else {
                 gameManager.levelComplete = false;
+                wrongAnswerSound.Play();
+                StartCoroutine(Restart());
             }
         }
+    }
+
+    IEnumerator Restart ()
+    {
+        yield return new WaitForSeconds(1);
+
+        gameManager.Restart();
+
     }
 }

@@ -56,8 +56,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void Next() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        inMenu = false;
+        if (SceneManager.GetActiveScene().buildIndex == PlayerPrefs.GetInt("lastLevel")) {
+            SceneManager.LoadScene(1);
+        } else {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            inMenu = false;
+        }
     }
 
 

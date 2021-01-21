@@ -11,12 +11,14 @@ public class SelectLevelMenu : MonoBehaviour
 
     void Awake () {
 		levelPassed = PlayerPrefs.GetInt ("LevelPassed");
-		Debug.Log(levelPassed);
 		level02Button.interactable = false;
 		level03Button.interactable = false;
 		level04Button.interactable = false;
 
+		PlayerPrefs.SetInt("lastLevel", 5);
+		//Debug.Log(PlayerPrefs.GetInt ("LevelPassed"));
 		switch (levelPassed) {
+		case 4:
 		case 3:
 			level04Button.interactable = true;
 			goto case 2;
