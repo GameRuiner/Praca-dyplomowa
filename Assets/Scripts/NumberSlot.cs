@@ -23,18 +23,19 @@ public class NumberSlot : MonoBehaviour, IDropHandler
             if (eventData.pointerDrag.name == rightAnswer) {
                 gameManager.levelComplete = true;
             } else {
-                gameManager.levelComplete = false;
+                //gameManager.levelComplete = false;
+                eventData.pointerDrag.GetComponent<Animator>().enabled = true;
                 wrongAnswerSound.Play();
-                StartCoroutine(Restart());
+                //StartCoroutine(OnAnimationEnd(eventData.pointerDrag.GetComponent<Animator>()));
             }
         }
     }
 
-    IEnumerator Restart ()
+    IEnumerator OnAnimationEnd (Animator anim)
     {
-        yield return new WaitForSeconds(1);
-
-        gameManager.Restart();
+        yield return new WaitForSeconds(0.99f);
+        anim.enabled = false;
+        //gameManager.Restart();
 
     }
 }
