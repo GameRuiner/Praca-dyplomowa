@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     public bool inMenu = false;
 
+    public GameObject hint;
+
     public static GameManager instance = null;
     int sceneIndex, levelPassed;
 
@@ -31,7 +34,29 @@ public class GameManager : MonoBehaviour
         
         sceneIndex = SceneManager.GetActiveScene ().buildIndex - 1;
 		levelPassed = PlayerPrefs.GetInt ("LevelPassed");
+
+        if (hint != null) {
+            StartCoroutine(WaitAndHint());
+        }
+
+
     }
+
+    private IEnumerator WaitAndHint()
+    {
+        yield return new WaitForSeconds(3);
+        hint.GetComponent<Animator>().enabled = true;
+        hint.GetComponent<Image>().enabled = true;
+        var AnimationTime = hint.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
+        StartCoroutine(WaitAndHide(AnimationTime));
+    }
+
+       private IEnumerator WaitAndHide(float waitTime) 
+    {
+        yield return new WaitForSeconds(waitTime);
+        hint.GetComponent<Image>().enabled = false;
+    }
+
 
 
     // Update is called once per frame
