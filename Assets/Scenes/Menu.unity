@@ -1362,7 +1362,7 @@ AudioSource:
   m_GameObject: {fileID: 1718533606}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: db4532632075d8c40a0431c45c483cac, type: 2}
   m_audioClip: {fileID: 8300000, guid: ff3825864f0936f4c8c67eca63c3d979, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.57
@@ -1888,6 +1888,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5714703271480013642, guid: ec0606434885be74997257ecb9cb4277, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: db4532632075d8c40a0431c45c483cac, type: 2}
     - target: {fileID: 5714703271480013749, guid: ec0606434885be74997257ecb9cb4277, type: 3}
       propertyPath: m_Name
       value: ClickSound
