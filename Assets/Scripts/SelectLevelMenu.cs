@@ -9,8 +9,12 @@ public class SelectLevelMenu : MonoBehaviour
     int levelPassed;
     public Button level02Button, level03Button, level04Button;
 
+	public Animator spaceShipAni;
+
     void Awake () {
 		levelPassed = PlayerPrefs.GetInt ("LevelPassed");
+		Debug.Log("lvl pass" + levelPassed);
+
 		level02Button.interactable = false;
 		level03Button.interactable = false;
 		level04Button.interactable = false;
