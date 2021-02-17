@@ -8,6 +8,7 @@ public class SelectLevelMenu : MonoBehaviour
 {
     int levelPassed;
     public Button level02Button, level03Button, level04Button, level05Button;
+	public Button level06Button;
 
 	public Animator spaceShipAni;
 
@@ -19,19 +20,7 @@ public class SelectLevelMenu : MonoBehaviour
 		level03Button.interactable = false;
 		level04Button.interactable = false;
 
-		PlayerPrefs.SetInt("lastLevel", 6);
-		// switch (levelPassed) {
-		// case 4:
-		// case 3:
-		// 	level04Button.interactable = true;
-		// 	goto case 2;
-		// case 2:
-		// 	level03Button.interactable = true;
-		// 	goto case 1;
-		// case 1:
-		// 	level02Button.interactable = true;
-		// 	break;
-		// }
+		PlayerPrefs.SetInt("lastLevel", 7);
 		if (levelPassed > 0) {
 			level02Button.interactable = true;
 		}
@@ -43,6 +32,9 @@ public class SelectLevelMenu : MonoBehaviour
 		}
 		if (levelPassed > 3) {
 			level05Button.interactable = true;
+		}
+		if (levelPassed > 4) {
+			level06Button.interactable = true;
 		}
     }
 
