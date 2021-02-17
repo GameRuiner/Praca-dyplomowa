@@ -7,31 +7,42 @@ using UnityEngine.SceneManagement;
 public class SelectLevelMenu : MonoBehaviour
 {
     int levelPassed;
-    public Button level02Button, level03Button, level04Button;
+    public Button level02Button, level03Button, level04Button, level05Button;
 
 	public Animator spaceShipAni;
 
     void Awake () {
 		levelPassed = PlayerPrefs.GetInt ("LevelPassed");
-		Debug.Log("lvl pass" + levelPassed);
+		//Debug.Log("lvl pass" + levelPassed);
 
 		level02Button.interactable = false;
 		level03Button.interactable = false;
 		level04Button.interactable = false;
 
-		PlayerPrefs.SetInt("lastLevel", 5);
-		//Debug.Log(PlayerPrefs.GetInt ("LevelPassed"));
-		switch (levelPassed) {
-		case 4:
-		case 3:
-			level04Button.interactable = true;
-			goto case 2;
-		case 2:
-			level03Button.interactable = true;
-			goto case 1;
-		case 1:
+		PlayerPrefs.SetInt("lastLevel", 6);
+		// switch (levelPassed) {
+		// case 4:
+		// case 3:
+		// 	level04Button.interactable = true;
+		// 	goto case 2;
+		// case 2:
+		// 	level03Button.interactable = true;
+		// 	goto case 1;
+		// case 1:
+		// 	level02Button.interactable = true;
+		// 	break;
+		// }
+		if (levelPassed > 0) {
 			level02Button.interactable = true;
-			break;
+		}
+		if (levelPassed > 1) {
+			level03Button.interactable = true;
+		}
+		if (levelPassed > 2) {
+			level04Button.interactable = true;
+		}
+		if (levelPassed > 3) {
+			level05Button.interactable = true;
 		}
     }
 
