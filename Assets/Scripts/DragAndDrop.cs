@@ -8,6 +8,8 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Animator animator;
+    public Vector3 aPosition;
+    public Vector3 position;
 
     private void Awake() {
             rectTransform = GetComponent<RectTransform>();
@@ -27,6 +29,9 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
         animator.enabled = false;
+        Debug.Log( eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition);
+        aPosition = eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition;
+        position = eventData.pointerDrag.GetComponent<RectTransform>().position;
     }
 
     public void OnDrag(PointerEventData eventData) {

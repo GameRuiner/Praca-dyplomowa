@@ -13,6 +13,14 @@ public class SelectLevelMenu : MonoBehaviour
 	public Animator spaceShipAni;
 
     void Awake () {
+
+		Debug.Log(SceneManager.GetActiveScene().buildIndex);
+		int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+		if (sceneIndex != 1) {
+			gameObject.SetActive(false);
+		}
+
+
 		levelPassed = PlayerPrefs.GetInt ("LevelPassed");
 		//Debug.Log("lvl pass" + levelPassed);
 
@@ -40,6 +48,7 @@ public class SelectLevelMenu : MonoBehaviour
 
 	public void levelToLoad (int level)
 	{
+		gameObject.SetActive(false);
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + level);
 	}
     public void Back ()
