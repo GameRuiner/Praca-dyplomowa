@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SelectLevelMenu : MonoBehaviour
 {
     int levelPassed;
+	int shipStay;
     public Button level02Button, level03Button, level04Button, level05Button;
 	public Button level06Button;
 
@@ -14,7 +15,7 @@ public class SelectLevelMenu : MonoBehaviour
 
     void Awake () {
 
-		Debug.Log(SceneManager.GetActiveScene().buildIndex);
+		//Debug.Log(SceneManager.GetActiveScene().buildIndex);
 		int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 		if (sceneIndex != 1) {
 			gameObject.SetActive(false);
@@ -22,13 +23,17 @@ public class SelectLevelMenu : MonoBehaviour
 
 
 		levelPassed = PlayerPrefs.GetInt ("LevelPassed");
+		shipStay = PlayerPrefs.GetInt ("shipSet");
+		spaceShipAni.SetInteger("ShipSet", shipStay);
+		spaceShipAni.SetInteger("levelComplete", levelPassed);
+
 		//Debug.Log("lvl pass" + levelPassed);
 
 		level02Button.interactable = false;
 		level03Button.interactable = false;
 		level04Button.interactable = false;
 
-		PlayerPrefs.SetInt("lastLevel", 7);
+		PlayerPrefs.SetInt("lastLevel", 8);
 		if (levelPassed > 0) {
 			level02Button.interactable = true;
 		}

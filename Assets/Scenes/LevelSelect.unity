@@ -341,16 +341,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453889136}
-  m_LocalRotation: {x: -0, y: -0, z: 0.503774, w: 0.8638356}
+  m_LocalRotation: {x: -0, y: -0, z: 0.75528187, w: 0.65540016}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 1887282120}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 98.1}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.3, y: -51.1}
+  m_AnchoredPosition: {x: -27.1, y: -93.79}
   m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &453889138
@@ -1658,7 +1658,7 @@ GameObject:
   - component: {fileID: 1627744696}
   - component: {fileID: 1627744695}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2240,7 +2240,6 @@ GameObject:
   - component: {fileID: 2123790275}
   - component: {fileID: 2123790274}
   - component: {fileID: 2123790278}
-  - component: {fileID: 2123790279}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -2347,15 +2346,3 @@ MonoBehaviour:
   level05Button: {fileID: 1396080043}
   level06Button: {fileID: 1643818647}
   spaceShipAni: {fileID: 453889141}
---- !u!114 &2123790279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123790273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1d1a638021a6942a9a936322355a0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

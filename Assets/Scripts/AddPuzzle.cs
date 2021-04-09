@@ -27,10 +27,7 @@ public class AddPuzzle : MonoBehaviour, IDropHandler
                     gameManager.levelComplete = true;
                 }
             } else {
-                var DaD =  GameObject.FindObjectOfType(typeof(DragAndDrop)) as DragAndDrop;
-                eventData.pointerDrag.GetComponent<RectTransform>().position = DaD.position;
-                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = DaD.aPosition;
-                //eventData.pointerDrag.GetComponent<Animator>().enabled = true;
+                eventData.pointerDrag.GetComponent<RectTransform>().position = eventData.pointerDrag.GetComponent<DragAndDrop>().position;
                 //wrongAnswerSound.Play();
             }
         }

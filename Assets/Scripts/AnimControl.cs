@@ -10,6 +10,7 @@ public class AnimControl : MonoBehaviour
         spaceShipAni = gameObject.GetComponent<Animator>();
         //spaceShipAni.enabled = false;
         var lvlPas = PlayerPrefs.GetInt("LevelPassed");
+        int shipStayAt = PlayerPrefs.GetInt ("shipSet");
         spaceShipAni.SetInteger("levelComplete", lvlPas);
         //spaceShipAni.SetInteger("ShipSet", shipSet);
         //Debug.Log("spaceshipSet" + shipSet + " lvlPas " + lvlPas);
@@ -34,8 +35,7 @@ public class AnimControl : MonoBehaviour
         // PlayerPrefs.SetFloat("shipPosX", transform.position.x);
         // PlayerPrefs.SetFloat("shipPosY", transform.position.y);
         spaceShipAni.SetInteger("ShipSet", lvl);
-        
-        //PlayerPrefs.SetInt("shipSet", lvl);
+        PlayerPrefs.SetInt("shipSet", lvl);
         //spaceShipAni.enabled = false;
         //Awake();
     }
