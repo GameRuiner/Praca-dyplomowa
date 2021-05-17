@@ -1204,6 +1204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 3080745875404477968, guid: b4a0a57567cf4bd4b9403a81f8c19d04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6917264989003363420, guid: b4a0a57567cf4bd4b9403a81f8c19d04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2549,6 +2553,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FailCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3553678108287966823, guid: 8ba184c99b54ca140a827d3e1860e2c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ba184c99b54ca140a827d3e1860e2c0, type: 3}
 --- !u!1001 &5654622572243799733
@@ -2753,6 +2761,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4303070206685606324, guid: 8cd84c0bcea69514898854bc844b7bc2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303070206685606324, guid: 8cd84c0bcea69514898854bc844b7bc2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303070206685606324, guid: 8cd84c0bcea69514898854bc844b7bc2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8728906275675462866, guid: 8cd84c0bcea69514898854bc844b7bc2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

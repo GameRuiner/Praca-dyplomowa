@@ -324,9 +324,9 @@ GameObject:
   m_Component:
   - component: {fileID: 453889137}
   - component: {fileID: 453889140}
-  - component: {fileID: 453889139}
   - component: {fileID: 453889141}
   - component: {fileID: 453889138}
+  - component: {fileID: 453889139}
   m_Layer: 5
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 453889136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: ef8b96895a0ec4ba685178a052544251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -386,15 +386,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 3286163911610860551, guid: 7ed32da5dc623014392300e8f4d62902, type: 3}
-  m_Type: 0
   m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &453889140
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1655,8 +1647,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1627744694}
   - component: {fileID: 1627744697}
-  - component: {fileID: 1627744696}
   - component: {fileID: 1627744695}
+  - component: {fileID: 1627744696}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1722,7 +1714,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1627744696}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1771,7 +1763,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1627744693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: ef8b96895a0ec4ba685178a052544251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1782,16 +1774,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3286163911610860551, guid: 01ea5c110c250ae49ac0d8ac0cf91317, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 3286163911610860551, guid: 4c9c41f7b689af5449d02429ef76d7a8, type: 3}
   m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1627744697
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -271,7 +271,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 312288827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: ef8b96895a0ec4ba685178a052544251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -282,16 +282,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3286163911610860551, guid: 20181beb4c93ffc47aef76f6f9921b36, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 3286163911610860551, guid: 5a15dd59b601e0a46a4a605a0f49b8e8, type: 3}
   m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &312288830
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -310,8 +302,8 @@ GameObject:
   m_Component:
   - component: {fileID: 466278997}
   - component: {fileID: 466279000}
-  - component: {fileID: 466278999}
   - component: {fileID: 466278998}
+  - component: {fileID: 466278999}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -414,7 +406,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 466278996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: ef8b96895a0ec4ba685178a052544251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -425,16 +417,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3286163911610860551, guid: 7d49b9945fc3c4246939969b18967e26, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 3286163911610860551, guid: b8a46560eb6ca834496063b5234fe97e, type: 3}
   m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &466279000
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -528,8 +512,8 @@ GameObject:
   m_Component:
   - component: {fileID: 746838821}
   - component: {fileID: 746838824}
-  - component: {fileID: 746838823}
   - component: {fileID: 746838822}
+  - component: {fileID: 746838823}
   m_Layer: 5
   m_Name: OptionButton
   m_TagString: Untagged
@@ -553,7 +537,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -400}
+  m_AnchoredPosition: {x: -157, y: -425}
   m_SizeDelta: {x: 982, y: 918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &746838822
@@ -644,7 +628,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 746838820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: ef8b96895a0ec4ba685178a052544251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -655,16 +639,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3286163911610860551, guid: 318082bb56682ed49a90dbf1131c5460, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 3286163911610860551, guid: ad41951e139b8c74c8af0d959b9909a3, type: 3}
   m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &746838824
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -850,8 +826,8 @@ GameObject:
   m_Component:
   - component: {fileID: 879770771}
   - component: {fileID: 879770774}
-  - component: {fileID: 879770773}
   - component: {fileID: 879770772}
+  - component: {fileID: 879770773}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -954,7 +930,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 879770770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: ef8b96895a0ec4ba685178a052544251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -965,16 +941,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3286163911610860551, guid: a1dfb5cc5b0bfc44980556d0d1ccdfca, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 3286163911610860551, guid: ff6f913ca75e99d43b574e2bc1af906f, type: 3}
   m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &879770774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1523,8 +1491,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1815482314}
   - component: {fileID: 1815482317}
-  - component: {fileID: 1815482316}
   - component: {fileID: 1815482315}
+  - component: {fileID: 1815482316}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1590,7 +1558,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1815482316}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1639,7 +1607,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1815482313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: ef8b96895a0ec4ba685178a052544251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1650,16 +1618,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3286163911610860551, guid: 01ea5c110c250ae49ac0d8ac0cf91317, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 3286163911610860551, guid: 4c9c41f7b689af5449d02429ef76d7a8, type: 3}
   m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1815482317
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1703,8 +1663,8 @@ Camera:
   m_GameObject: {fileID: 1995161205}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

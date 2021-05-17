@@ -1446,6 +1446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PassCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8728906276430566600, guid: 8cd84c0bcea69514898854bc844b7bc2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8728906276430566612, guid: 8cd84c0bcea69514898854bc844b7bc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1677,7 +1681,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5208465032254318718}
-  aPosition: {x: 0, y: 0, z: 0}
   position: {x: 0, y: 0, z: 0}
 --- !u!114 &1566050667
 MonoBehaviour:
@@ -1980,7 +1983,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5208465032254318718}
-  aPosition: {x: 0, y: 0, z: 0}
   position: {x: 0, y: 0, z: 0}
 --- !u!114 &1685275268
 MonoBehaviour:
@@ -2180,7 +2182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5208465032254318718}
-  aPosition: {x: 0, y: 0, z: 0}
   position: {x: 0, y: 0, z: 0}
 --- !u!114 &1709224708
 MonoBehaviour:
