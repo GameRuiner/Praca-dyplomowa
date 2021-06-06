@@ -27,7 +27,7 @@ public class Paintable : MonoBehaviour
             var Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(Ray, out hit ) && hit.transform.gameObject.name == "Plane" && GameManager.inMenu != true) {
-                var go = Instantiate(Brush, hit.point + Vector3.up * 0.03f, Quaternion.identity, transform);
+                var go = Instantiate(Brush, hit.point + Vector3.up * 10, Quaternion.identity, transform);
                 go.transform.localScale = Vector3.one * BrushSize;
             }
         }
