@@ -40,4 +40,9 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
     }
+
+    public void OnEnd() {
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.alpha = 1f;
+    }
 }
