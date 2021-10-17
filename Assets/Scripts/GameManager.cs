@@ -51,13 +51,29 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WaitAndHide(AnimationTime));
     }
 
-       private IEnumerator WaitAndHide(float waitTime) 
+    private IEnumerator WaitAndHide(float waitTime) 
     {
         yield return new WaitForSeconds(waitTime);
         hint.GetComponent<Image>().enabled = false;
     }
 
-
+    private IEnumerator WaitAndFinishLevel(float waitTime) 
+    {
+        yield return new WaitForSeconds(waitTime);
+        inMenu = true;
+        levelComplete = false;  
+        if (levelPassed < sceneIndex)
+			PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
+        passPanel.gameObject.SetActive(true);
+    }
+    
+        private IEnumerator WaitAndFinishFailedLevel(float waitTime) 
+    {
+        yield return new WaitForSeconds(waitTime);
+        levelFailed = false;
+        inMenu = true;
+        failPanel.gameObject.SetActive(true);
+    }
 
     // Update is called once per frame
     void Update()
@@ -92,19 +108,22 @@ public class GameManager : MonoBehaviour
 
     public void LevelFailed() {
         loseSound.Play();
-        levelFailed = false;
-        inMenu = true;
-        failPanel.gameObject.SetActive(true);
+        StartCoroutine(WaitAndFinishFailedLevel(1));
+        // levelFailed = false;
+        // inMenu = true;
+        // failPanel.gameObject.SetActive(true);
     }
 
     public void LevelPassed() {
         winSound.Play();
-        inMenu = true;
-        levelComplete = false;  
-        if (levelPassed < sceneIndex)
-			PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
+        StartCoroutine(WaitAndFinishLevel(1));
+        // winSound.Play();
+        // inMenu = true;
+        // levelComplete = false;  
+        // if (levelPassed < sceneIndex)
+		// 	PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
         
-        passPanel.gameObject.SetActive(true);
+        //passPanel.gameObject.SetActive(true);
     }
     
 }
