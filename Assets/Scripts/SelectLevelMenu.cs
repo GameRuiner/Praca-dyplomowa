@@ -56,6 +56,35 @@ public class SelectLevelMenu : MonoBehaviour
 		gameObject.SetActive(false);
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + level);
 	}
+	public void randomizeLevel1() {
+		string levels = PlayerPrefs.GetString("firstPlanetLevels", "First time");
+		if (levels != "First time") {
+			Debug.Log(levels);
+			if (levels == "") {
+				levelToLoad(6);
+			} else {
+				string[] levelArray = levels.Split(',');
+				List<string> levelList = new List<string>(levelArray);
+				Debug.Log(levelList.Count);
+				int level = Random.Range(0, levelList.Count);
+				string levelStr = levelList[level];
+				levelList.RemoveAt(level);
+				string json = string.Join(",", levelList.ToArray());
+				PlayerPrefs.SetString("firstPlanetLevels", json);
+				gameObject.SetActive(false);
+				SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + int.Parse(levelStr));
+			}
+		} else {
+			List<int> levelArray = new List<int>() {1, 2, 3, 4, 5};
+			int level = Random.Range(1, 6);
+			levelArray.Remove(level);
+			Debug.Log(levelArray.Count);
+			string json = string.Join(",", levelArray);
+			PlayerPrefs.SetString("firstPlanetLevels", json);
+			gameObject.SetActive(false);
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + level);
+		}
+	}
     public void Back ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

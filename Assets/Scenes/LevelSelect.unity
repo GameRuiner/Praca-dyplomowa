@@ -777,8 +777,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2123790278}
         m_TargetAssemblyTypeName: SelectLevelMenu, Assembly-CSharp
-        m_MethodName: levelToLoad
-        m_Mode: 3
+        m_MethodName: randomizeLevel1
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 524434414}
   m_HandleRect: {fileID: 524434413}
   m_Direction: 2
-  m_Value: 0.007233612
+  m_Value: 0.007233198
   m_Size: 0.47483382
   m_NumberOfSteps: 0
   m_OnValueChanged:
