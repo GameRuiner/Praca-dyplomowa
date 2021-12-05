@@ -61,7 +61,15 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         inMenu = true;
-        levelComplete = false;  
+        levelComplete = false; 
+
+        string levels = PlayerPrefs.GetString("firstPlanetLevels", "First time");
+        string[] levelArray = levels.Split(',');
+        List<string> levelList = new List<string>(levelArray);
+        levelList.Remove(""+sceneIndex);
+        string json = string.Join(",", levelList.ToArray());
+        PlayerPrefs.SetString("firstPlanetLevels", json);
+        
         if (levelPassed < sceneIndex)
 			PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
         passPanel.gameObject.SetActive(true);

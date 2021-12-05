@@ -15,7 +15,6 @@ public class SelectLevelMenu : MonoBehaviour
 
     void Awake () {
 
-		//Debug.Log(SceneManager.GetActiveScene().buildIndex);
 		int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 		if (sceneIndex != 1) {
 			gameObject.SetActive(false);
@@ -26,8 +25,6 @@ public class SelectLevelMenu : MonoBehaviour
 		shipStay = PlayerPrefs.GetInt ("shipSet");
 		spaceShipAni.SetInteger("ShipSet", shipStay);
 		spaceShipAni.SetInteger("levelComplete", levelPassed);
-
-		//Debug.Log("lvl pass" + levelPassed);
 
 		level02Button.interactable = false;
 		level03Button.interactable = false;
@@ -59,16 +56,13 @@ public class SelectLevelMenu : MonoBehaviour
 	public void randomizeLevel1() {
 		string levels = PlayerPrefs.GetString("firstPlanetLevels", "First time");
 		if (levels != "First time") {
-			Debug.Log(levels);
 			if (levels == "") {
 				levelToLoad(6);
 			} else {
 				string[] levelArray = levels.Split(',');
 				List<string> levelList = new List<string>(levelArray);
-				Debug.Log(levelList.Count);
 				int level = Random.Range(0, levelList.Count);
 				string levelStr = levelList[level];
-				levelList.RemoveAt(level);
 				string json = string.Join(",", levelList.ToArray());
 				PlayerPrefs.SetString("firstPlanetLevels", json);
 				gameObject.SetActive(false);
@@ -77,8 +71,6 @@ public class SelectLevelMenu : MonoBehaviour
 		} else {
 			List<int> levelArray = new List<int>() {1, 2, 3, 4, 5};
 			int level = Random.Range(1, 6);
-			levelArray.Remove(level);
-			Debug.Log(levelArray.Count);
 			string json = string.Join(",", levelArray);
 			PlayerPrefs.SetString("firstPlanetLevels", json);
 			gameObject.SetActive(false);
