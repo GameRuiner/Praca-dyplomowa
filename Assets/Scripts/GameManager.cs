@@ -63,15 +63,21 @@ public class GameManager : MonoBehaviour
         inMenu = true;
         levelComplete = false; 
 
-        string levels = PlayerPrefs.GetString("firstPlanetLevels", "First time");
+        string levels = PlayerPrefs.GetString("firstPlanetLevels");
         string[] levelArray = levels.Split(',');
         List<string> levelList = new List<string>(levelArray);
+        int startArrayLength = levelList.Count;
         levelList.Remove(""+sceneIndex);
         string json = string.Join(",", levelList.ToArray());
         PlayerPrefs.SetString("firstPlanetLevels", json);
         
-        if (levelPassed < sceneIndex)
-			PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
+        // if (levelPassed < sceneIndex)
+		// 	PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
+        if (startArrayLength > levelList.Count) {
+            int levelsPassed =  PlayerPrefs.GetInt("LevelPassed");
+            PlayerPrefs.SetInt ("LevelPassed", levelsPassed + 1);
+        }
+            
         passPanel.gameObject.SetActive(true);
     }
     
@@ -108,9 +114,37 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == PlayerPrefs.GetInt("lastLevel")) {
             SceneManager.LoadScene(1);
         } else {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             inMenu = false;
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            LoadNextLevel();
         }
+    }
+
+    void LoadNextLevel() {
+        int currentPlanet = PlayerPrefs.GetInt("currentPlanet");
+        string levels = PlayerPrefs.GetString("firstPlanetLevels", "First time");
+		PlayerPrefs.SetInt("currentPlanet", 1);
+		if (levels != "First time") {
+			if (levels == "") {
+				SceneManager.LoadScene (1 + 6);
+			} else {
+				string[] levelArray = levels.Split(',');
+				List<string> levelList = new List<string>(levelArray);
+				int level = Random.Range(0, levelList.Count);
+				string levelStr = levelList[level];
+				string json = string.Join(",", levelList.ToArray());
+				PlayerPrefs.SetString("firstPlanetLevels", json);
+				gameObject.SetActive(false);
+				SceneManager.LoadScene (1 + int.Parse(levelStr));
+			}
+		} else {
+			List<int> levelArray = new List<int>() {1, 2, 3, 4, 5};
+			int level = Random.Range(1, 6);
+			string json = string.Join(",", levelArray);
+			PlayerPrefs.SetString("firstPlanetLevels", json);
+			gameObject.SetActive(false);
+			SceneManager.LoadScene (1 + level);
+		}
     }
 
 

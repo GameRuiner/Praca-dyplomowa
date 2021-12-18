@@ -21,8 +21,8 @@ public class SelectLevelMenu : MonoBehaviour
 		}
 
 
-		levelPassed = PlayerPrefs.GetInt ("LevelPassed");
-		shipStay = PlayerPrefs.GetInt ("shipSet");
+		levelPassed = PlayerPrefs.GetInt("LevelPassed");
+		shipStay = PlayerPrefs.GetInt("shipSet");
 		spaceShipAni.SetInteger("ShipSet", shipStay);
 		spaceShipAni.SetInteger("levelComplete", levelPassed);
 
@@ -31,21 +31,22 @@ public class SelectLevelMenu : MonoBehaviour
 		level04Button.interactable = false;
 
 		PlayerPrefs.SetInt("lastLevel", 8);
-		if (levelPassed > 0) {
+		Debug.Log(levelPassed);
+		if (levelPassed > 4) {
 			level02Button.interactable = true;
 		}
-		if (levelPassed > 1) {
-			level03Button.interactable = true;
-		}
-		if (levelPassed > 2) {
-			level04Button.interactable = true;
-		}
-		if (levelPassed > 3) {
-			level05Button.interactable = true;
-		}
-		if (levelPassed > 4) {
-			level06Button.interactable = true;
-		}
+		// if (levelPassed > 1) {
+		// 	level03Button.interactable = true;
+		// }
+		// if (levelPassed > 2) {
+		// 	level04Button.interactable = true;
+		// }
+		// if (levelPassed > 3) {
+		// 	level05Button.interactable = true;
+		// }
+		// if (levelPassed > 4) {
+		// 	level06Button.interactable = true;
+		// }
     }
 
 	public void levelToLoad (int level)
@@ -53,8 +54,10 @@ public class SelectLevelMenu : MonoBehaviour
 		gameObject.SetActive(false);
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + level);
 	}
+
 	public void randomizeLevel1() {
 		string levels = PlayerPrefs.GetString("firstPlanetLevels", "First time");
+		PlayerPrefs.SetInt("currentPlanet", 1);
 		if (levels != "First time") {
 			if (levels == "") {
 				levelToLoad(6);
@@ -77,6 +80,7 @@ public class SelectLevelMenu : MonoBehaviour
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + level);
 		}
 	}
+
     public void Back ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
