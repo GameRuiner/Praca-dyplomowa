@@ -6153,6 +6153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b75d69f83bb7646ac3d67ae29acbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelStage: 1
   collisionToPass: 5
   levelFailed: 0
   levelComplete: 0
