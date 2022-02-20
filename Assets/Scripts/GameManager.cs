@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     int sceneIndex,
         levelPassed;
 
+    bool coroutineStarted = false;
+
     void Start()
     {
         if (instance == null)
@@ -277,23 +279,19 @@ public class GameManager : MonoBehaviour
 
     public void LevelFailed()
     {
-        loseSound.Play();
-        StartCoroutine(WaitAndFinishFailedLevel(1));
-        // levelFailed = false;
-        // inMenu = true;
-        // failPanel.gameObject.SetActive(true);
+        if (!coroutineStarted) {
+            coroutineStarted = true;
+            loseSound.Play();
+            StartCoroutine(WaitAndFinishFailedLevel(1));
+        }
     }
 
     public void LevelPassed()
     {
-        winSound.Play();
-        StartCoroutine(WaitAndFinishLevel(1));
-        // winSound.Play();
-        // inMenu = true;
-        // levelComplete = false;
-        // if (levelPassed < sceneIndex)
-        // 	PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
-
-        //passPanel.gameObject.SetActive(true);
+        if (!coroutineStarted) {
+            coroutineStarted = true;
+            winSound.Play();
+            StartCoroutine(WaitAndFinishLevel(1));
+        }
     }
 }
