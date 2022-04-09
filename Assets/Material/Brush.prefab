@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8687250623891679380}
   - component: {fileID: -8660787022782266257}
   - component: {fileID: -1325785901794172167}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Brush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.14
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-8660787022782266257
 MonoBehaviour:

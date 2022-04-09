@@ -33,14 +33,14 @@ public class SelectLevelMenu : MonoBehaviour
         level03Button.interactable = false;
         level04Button.interactable = false;
 
-        PlayerPrefs.SetInt("lastLevel", 8);
-        if (levelPassed > 4)
+        PlayerPrefs.SetInt("lastLevel", 14);
+        if (levelPassed > 5)
         {
             level02Button.interactable = true;
         }
-        // if (levelPassed > 1) {
-        // 	level03Button.interactable = true;
-        // }
+        if (levelPassed > 10) {
+        	level03Button.interactable = true;
+        }
         // if (levelPassed > 2) {
         // 	level04Button.interactable = true;
         // }

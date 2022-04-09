@@ -9,12 +9,12 @@ public class Paintable : MonoBehaviour
 
     public GameManager GameManager;
 
-    GameObject plane;
+    // GameObject plane;
 
     // Start is called before the first frame update
     void Start()
     {
-          plane = GameObject.Find("Plane");
+        //   plane = GameObject.Find("Plane");
           //Debug.Log(plane.GetComponent<Transform>());
     }
 
@@ -28,6 +28,8 @@ public class Paintable : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(Ray, out hit ) && hit.transform.gameObject.name == "Plane" && GameManager.inMenu != true) {
                 var go = Instantiate(Brush, hit.point + Vector3.up * 10, Quaternion.identity, transform);
+                go.transform.localScale = Vector3.one * BrushSize;
+                go = Instantiate(Brush, hit.point + Vector3.up * 1, Quaternion.identity, transform);
                 go.transform.localScale = Vector3.one * BrushSize;
             }
         }

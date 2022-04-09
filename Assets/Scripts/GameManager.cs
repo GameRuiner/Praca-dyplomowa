@@ -73,6 +73,9 @@ public class GameManager : MonoBehaviour
             case 2:
                 levelStageName = "secondPlanetLevels";
                 break;
+            case 3:
+                levelStageName = "thirdPlanetLevels";
+                break;    
             default:
                 levelStageName = "firstPlanetLevels";
                 break;
