@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b75d69f83bb7646ac3d67ae29acbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelStage: 1
   collisionToPass: 4
   levelFailed: 0
   levelComplete: 0
@@ -262,6 +263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2398748951857800348, guid: 76ac61f7089327d418527c88aa75fd85, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: f8df3de55b0c48049958f4f592b85319, type: 2}
     - target: {fileID: 2398748951857800350, guid: 76ac61f7089327d418527c88aa75fd85, type: 3}
       propertyPath: m_RootOrder
       value: 0
