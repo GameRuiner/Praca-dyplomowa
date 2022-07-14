@@ -3606,6 +3606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2398748951857800348, guid: 76ac61f7089327d418527c88aa75fd85, type: 3}
+      propertyPath: weight
+      value: 0.424
+      objectReference: {fileID: 0}
     - target: {fileID: 2398748951857800350, guid: 76ac61f7089327d418527c88aa75fd85, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4217,8 +4221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30dac528fcb5a0b49bae69f1e7f32014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot1: {fileID: 1530534098}
-  slot2: {fileID: 0}
+  slots:
+  - {fileID: 1124749232}
+  - {fileID: 1012161649}
+  - {fileID: 585495527}
+  - {fileID: 1513769555}
+  - {fileID: 411843383}
 --- !u!114 &1955630783
 MonoBehaviour:
   m_ObjectHideFlags: 0
