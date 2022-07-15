@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Generator : MonoBehaviour
 {
     public GameObject[] slots;
+    public GameObject[] slotsResult;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,11 @@ public class Generator : MonoBehaviour
         int secondNumber = op == "+" ? rand.Next(0, 9 - firstNumber) : rand.Next(0, firstNumber);
         int result = op == "+" ? firstNumber + secondNumber : firstNumber - secondNumber;
         List<string> values = new List<string> {op, firstNumber.ToString(), secondNumber.ToString(), "=", result.ToString()};
+        slotsResult[0].GetComponent<TMPro.TextMeshProUGUI>().text = firstNumber.ToString();
+        slotsResult[1].GetComponent<TMPro.TextMeshProUGUI>().text = op;
+        slotsResult[2].GetComponent<TMPro.TextMeshProUGUI>().text = secondNumber.ToString();
+        slotsResult[3].GetComponent<TMPro.TextMeshProUGUI>().text = "=";
+        slotsResult[4].GetComponent<TMPro.TextMeshProUGUI>().text = result.ToString();
         List<(int, int, int)> colors = new List<(int, int, int)>{
             (87, 78, 86),
             (9, 9, 10),

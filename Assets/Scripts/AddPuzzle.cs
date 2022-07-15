@@ -11,8 +11,6 @@ public class AddPuzzle : MonoBehaviour, IDropHandler
 
     private AudioSource correctAnswer; 
 
-    public string rightAnswer;
-
     private void Awake() {
         gameManager =  GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
         //wrongAnswerSound = GetComponent<AudioSource>();
@@ -22,7 +20,9 @@ public class AddPuzzle : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null) {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             eventData.pointerDrag.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
-            if (eventData.pointerDrag.name == rightAnswer) {
+            string currentValue = this.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
+            string draggedValue = eventData.pointerDrag.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text;
+            if (currentValue == draggedValue) {
                 gameManager.collisionToPass -= 1;
                 eventData.pointerDrag.GetComponent<DragAndDrop>().OnEnd();
                 eventData.pointerDrag.GetComponent<DragAndDrop>().enabled = false;
