@@ -171,6 +171,9 @@ public class GameManager : MonoBehaviour
             case 2:
                 randomizeLevel2();
                 break;
+            case 3:
+                randomizeLevel3();
+                break;
             default:
                 randomizeLevel1();
                 break;
@@ -248,12 +251,13 @@ public class GameManager : MonoBehaviour
     {
         string levels = PlayerPrefs.GetString("secondPlanetLevels", "First time");
         Debug.Log("randomizeLevel2 " + levels);
+        levelStage = 2;
         // PlayerPrefs.SetInt("currentPlanet", 1);
         if (levels != "First time")
         {
             if (levels == "")
             {
-                levelToLoad(11);
+                randomizeLevel3();
             }
             else
             {
@@ -276,6 +280,45 @@ public class GameManager : MonoBehaviour
             string json = string.Join(",", levelArray);
             PlayerPrefs.SetString("secondPlanetLevels", json);
             gameObject.SetActive(false);
+            SceneManager.LoadScene(1 + level);
+        }
+    }
+
+        public void randomizeLevel3()
+    {
+        string levels = PlayerPrefs.GetString("thirdPlanetLevels", "First time");
+        Debug.Log("randomizeLevel3" + levels);
+        levelStage = 3;
+        // PlayerPrefs.SetInt("currentPlanet", 1);
+        if (levels != "First time")
+        {
+            if (levels == "")
+            {
+                levelToLoad(16);
+            }
+            else
+            {
+                string[] levelArray = levels.Split(',');
+                List<string> levelList = new List<string>(levelArray);
+                int level = Random.Range(0, levelList.Count);
+                string levelStr = levelList[level];
+                string json = string.Join(",", levelList.ToArray());
+                PlayerPrefs.SetString("thirdPlanetLevels", json);
+                gameObject.SetActive(false);
+                int sceneToLoad = 1 + int.Parse(levelStr);
+                SceneManager.LoadScene(
+                    sceneToLoad
+                );
+            }
+        }
+        else
+        {
+            List<int> levelArray = new List<int>() { 11, 12, 13, 14, 15 };
+            int level = Random.Range(11, 16);
+            string json = string.Join(",", levelArray);
+            PlayerPrefs.SetString("thirdPlanetLevels", json);
+            gameObject.SetActive(false);
+            Debug.Log("scene loaded" + level);
             SceneManager.LoadScene(1 + level);
         }
     }

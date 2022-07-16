@@ -1088,12 +1088,24 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2123790278}
         m_TargetAssemblyTypeName: SelectLevelMenu, Assembly-CSharp
-        m_MethodName: levelToLoad
-        m_Mode: 3
+        m_MethodName: randomizeLevel3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1157298861}
+        m_TargetAssemblyTypeName: ClickSound, Assembly-CSharp
+        m_MethodName: playClickEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1218,8 +1230,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 524434414}
   m_HandleRect: {fileID: 524434413}
   m_Direction: 2
-  m_Value: 0.007233198
-  m_Size: 0.47483382
+  m_Value: 0.0072339587
+  m_Size: 0.4748339
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
