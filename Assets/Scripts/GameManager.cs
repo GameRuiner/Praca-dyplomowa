@@ -7,7 +7,6 @@ using static SelectLevelMenu;
 
 public class GameManager : MonoBehaviour
 {
-    public int levelStage = 1;
     public int collisionToPass = 4;
 
     public bool levelFailed = false;
@@ -43,8 +42,6 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(WaitAndHint());
         }
-
-
     }
 
     private IEnumerator WaitAndHint()
@@ -65,20 +62,25 @@ public class GameManager : MonoBehaviour
     private string GetStageName()
     {
         string levelStageName = "";
-        switch (levelStage)
+        string levels = PlayerPrefs.GetString("firstPlanetLevels");
+        if (levels != "")
         {
-            case 1:
-                levelStageName = "firstPlanetLevels";
-                break;
-            case 2:
-                levelStageName = "secondPlanetLevels";
-                break;
-            case 3:
-                levelStageName = "thirdPlanetLevels";
-                break;    
-            default:
-                levelStageName = "firstPlanetLevels";
-                break;
+            return "firstPlanetLevels";
+        }
+        levels = PlayerPrefs.GetString("secondPlanetLevels");
+        if (levels != "")
+        {
+            return "secondPlanetLevels";
+        }
+        levels = PlayerPrefs.GetString("thirdPlanetLevels");
+        if (levels != "")
+        {
+            return "thirdPlanetLevels";
+        }
+        levels = PlayerPrefs.GetString("fourthPlanetLevels");
+        if (levels != "")
+        {
+            return "fourthPlanetLevels";
         }
         return levelStageName;
     }
@@ -89,7 +91,7 @@ public class GameManager : MonoBehaviour
         inMenu = true;
         levelComplete = false;
         string levelStageName = GetStageName();
-
+        Debug.Log("WaitAndFinishLevel levelStageName " + levelStageName);
         string levels = PlayerPrefs.GetString(levelStageName);
         string[] levelArray = levels.Split(',');
         List<string> levelList = new List<string>(levelArray);
@@ -158,26 +160,47 @@ public class GameManager : MonoBehaviour
 
     void LoadNextLevel()
     {
+        Debug.Log("loadNextLevel");
         string levelStageName = GetStageName();
-        // int currentPlanet = PlayerPrefs.GetInt("currentPlanet");
-        string levels = PlayerPrefs.GetString(levelStageName, "First time");
-        // PlayerPrefs.SetInt("currentPlanet", 1);
-        Debug.Log("levelstage" + levelStage);
-        switch (levelStage)
+                switch (levelStageName)
         {
-            case 1:
+            case "firstPlanetLevels":
                 randomizeLevel1();
                 break;
-            case 2:
+            case "secondPlanetLevels":
                 randomizeLevel2();
                 break;
-            case 3:
+            case "thirdPlanetLevels":
                 randomizeLevel3();
+                break;
+            case "fourthPlanetLevels":
+                randomizeLevel4();
                 break;
             default:
                 randomizeLevel1();
                 break;
         }
+        // int currentPlanet = PlayerPrefs.GetInt("currentPlanet");
+        // string levels = PlayerPrefs.GetString(levelStageName, "First time");
+        // PlayerPrefs.SetInt("currentPlanet", 1);
+        // switch (levelStage)
+        // {
+        //     case 1:
+        //         randomizeLevel1();
+        //         break;
+        //     case 2:
+        //         randomizeLevel2();
+        //         break;
+        //     case 3:
+        //         randomizeLevel3();
+        //         break;
+        //     case 4:
+        //         randomizeLevel4();
+        //         break;
+        //     default:
+        //         randomizeLevel1();
+        //         break;
+        // }
         // if (levels != "First time")
         // {
         //     if (levels == "")
@@ -206,11 +229,13 @@ public class GameManager : MonoBehaviour
         //     SceneManager.LoadScene(1 + level);
         // }
     }
+
     public void levelToLoad(int level)
     {
         gameObject.SetActive(false);
         SceneManager.LoadScene(1 + level);
     }
+
     public void randomizeLevel1()
     {
         string levels = PlayerPrefs.GetString("firstPlanetLevels", "First time");
@@ -231,9 +256,7 @@ public class GameManager : MonoBehaviour
                 string json = string.Join(",", levelList.ToArray());
                 PlayerPrefs.SetString("firstPlanetLevels", json);
                 gameObject.SetActive(false);
-                SceneManager.LoadScene(
-                    1 + int.Parse(levelStr)
-                );
+                SceneManager.LoadScene(1 + int.Parse(levelStr));
             }
         }
         else
@@ -251,7 +274,7 @@ public class GameManager : MonoBehaviour
     {
         string levels = PlayerPrefs.GetString("secondPlanetLevels", "First time");
         Debug.Log("randomizeLevel2 " + levels);
-        levelStage = 2;
+        // levelStage = 2;
         // PlayerPrefs.SetInt("currentPlanet", 1);
         if (levels != "First time")
         {
@@ -266,6 +289,7 @@ public class GameManager : MonoBehaviour
                 int level = Random.Range(0, levelList.Count);
                 string levelStr = levelList[level];
                 string json = string.Join(",", levelList.ToArray());
+                Debug.Log("randomizeLevel2 from select menu json" + json);
                 PlayerPrefs.SetString("secondPlanetLevels", json);
                 gameObject.SetActive(false);
                 int sceneToLoad = 1 + int.Parse(levelStr);
@@ -284,17 +308,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-        public void randomizeLevel3()
+    public void randomizeLevel3()
     {
         string levels = PlayerPrefs.GetString("thirdPlanetLevels", "First time");
-        Debug.Log("randomizeLevel3" + levels);
-        levelStage = 3;
+        Debug.Log("randomizeLevel3 " + levels);
+        // levelStage = 3;
+        // Debug.Log("randomizeLevel3 level stage " + levelStage);
         // PlayerPrefs.SetInt("currentPlanet", 1);
         if (levels != "First time")
         {
             if (levels == "")
             {
-                levelToLoad(16);
+                randomizeLevel4();
             }
             else
             {
@@ -306,9 +331,7 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetString("thirdPlanetLevels", json);
                 gameObject.SetActive(false);
                 int sceneToLoad = 1 + int.Parse(levelStr);
-                SceneManager.LoadScene(
-                    sceneToLoad
-                );
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
         else
@@ -323,9 +346,47 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void randomizeLevel4()
+    {
+        string levels = PlayerPrefs.GetString("fourthPlanetLevels", "First time");
+        Debug.Log("randomizeLevel4" + levels);
+        // levelStage = 4;
+        // PlayerPrefs.SetInt("currentPlanet", 1);
+        if (levels != "First time")
+        {
+            if (levels == "")
+            {
+                levelToLoad(21);
+            }
+            else
+            {
+                string[] levelArray = levels.Split(',');
+                List<string> levelList = new List<string>(levelArray);
+                int level = Random.Range(0, levelList.Count);
+                string levelStr = levelList[level];
+                string json = string.Join(",", levelList.ToArray());
+                PlayerPrefs.SetString("fourthPlanetLevels", json);
+                gameObject.SetActive(false);
+                int sceneToLoad = 1 + int.Parse(levelStr);
+                SceneManager.LoadScene(sceneToLoad);
+            }
+        }
+        else
+        {
+            List<int> levelArray = new List<int>() { 16, 17, 18, 19, 20 };
+            int level = Random.Range(16, 21);
+            string json = string.Join(",", levelArray);
+            PlayerPrefs.SetString("fourthPlanetLevels", json);
+            gameObject.SetActive(false);
+            Debug.Log("scene loaded" + level);
+            SceneManager.LoadScene(1 + level);
+        }
+    }
+
     public void LevelFailed()
     {
-        if (!coroutineStarted) {
+        if (!coroutineStarted)
+        {
             coroutineStarted = true;
             loseSound.Play();
             StartCoroutine(WaitAndFinishFailedLevel(1));
@@ -334,7 +395,8 @@ public class GameManager : MonoBehaviour
 
     public void LevelPassed()
     {
-        if (!coroutineStarted) {
+        if (!coroutineStarted)
+        {
             coroutineStarted = true;
             winSound.Play();
             StartCoroutine(WaitAndFinishLevel(1));

@@ -12,7 +12,6 @@ public class SelectLevelMenu : MonoBehaviour
        level03Button,
        level04Button,
        level05Button;
-    public Button level06Button;
 
     public Animator spaceShipAni;
 
@@ -41,9 +40,9 @@ public class SelectLevelMenu : MonoBehaviour
         if (levelPassed > 9) {
         	level03Button.interactable = true;
         }
-        // if (levelPassed > 2) {
-        // 	level04Button.interactable = true;
-        // }
+        if (levelPassed > 14) {
+        	level04Button.interactable = true;
+        }
         // if (levelPassed > 3) {
         // 	level05Button.interactable = true;
         // }
@@ -76,6 +75,7 @@ public class SelectLevelMenu : MonoBehaviour
                 int level = Random.Range(0, levelList.Count);
                 string levelStr = levelList[level];
                 string json = string.Join(",", levelList.ToArray());
+                Debug.Log("randomizeLevel1 from select menu json" + json);
                 PlayerPrefs.SetString("firstPlanetLevels", json);
                 gameObject.SetActive(false);
                 SceneManager.LoadScene(
@@ -161,6 +161,42 @@ public class SelectLevelMenu : MonoBehaviour
             int level = Random.Range(11, 16);
             string json = string.Join(",", levelArray);
             PlayerPrefs.SetString("thirdPlanetLevels", json);
+            gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + level);
+        }
+    }
+
+        public void randomizeLevel4()
+    {
+        string levels = PlayerPrefs.GetString("fourthPlanetLevels", "First time");
+        Debug.Log("randomizeLevel4 from select menu" + levels);
+        // PlayerPrefs.SetInt("currentPlanet", 1);
+        if (levels != "First time")
+        {
+            if (levels == "")
+            {
+                levelToLoad(21);
+            }
+            else
+            {
+                string[] levelArray = levels.Split(',');
+                List<string> levelList = new List<string>(levelArray);
+                int level = Random.Range(0, levelList.Count);
+                string levelStr = levelList[level];
+                string json = string.Join(",", levelList.ToArray());
+                PlayerPrefs.SetString("fourthPlanetLevels", json);
+                gameObject.SetActive(false);
+                SceneManager.LoadScene(
+                    SceneManager.GetActiveScene().buildIndex + int.Parse(levelStr)
+                );
+            }
+        }
+        else
+        {
+            List<int> levelArray = new List<int>() { 16, 17, 18, 19, 20 };
+            int level = Random.Range(16, 21);
+            string json = string.Join(",", levelArray);
+            PlayerPrefs.SetString("fourthPlanetLevels", json);
             gameObject.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + level);
         }
