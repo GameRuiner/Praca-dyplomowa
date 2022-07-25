@@ -82,6 +82,14 @@ public class GameManager : MonoBehaviour
         {
             return "fourthPlanetLevels";
         }
+        int lvls = PlayerPrefs.GetInt("fifthPlanetLevels");
+        if (lvls != 0)
+        {
+            return "fifthPlanetLevels";
+        }
+         else {
+            return "finish";
+         }
         return levelStageName;
     }
 
@@ -92,20 +100,29 @@ public class GameManager : MonoBehaviour
         levelComplete = false;
         string levelStageName = GetStageName();
         Debug.Log("WaitAndFinishLevel levelStageName " + levelStageName);
-        string levels = PlayerPrefs.GetString(levelStageName);
-        string[] levelArray = levels.Split(',');
-        List<string> levelList = new List<string>(levelArray);
-        int startArrayLength = levelList.Count;
-        levelList.Remove("" + sceneIndex);
-        string json = string.Join(",", levelList.ToArray());
-        PlayerPrefs.SetString(levelStageName, json);
-
-        // if (levelPassed < sceneIndex)
-        // 	PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
-        if (startArrayLength > levelList.Count)
+        if (levelStageName == "fifthPlanetLevels")
         {
-            int levelsPassed = PlayerPrefs.GetInt("LevelPassed");
-            PlayerPrefs.SetInt("LevelPassed", levelsPassed + 1);
+            int lvls = PlayerPrefs.GetInt("fifthPlanetLevels");
+            int levelsToFinish = PlayerPrefs.GetInt("fifthPlanetLevels");
+            PlayerPrefs.SetInt("fifthPlanetLevels", levelsToFinish - 1);
+        }
+        else
+        {
+            string levels = PlayerPrefs.GetString(levelStageName);
+            string[] levelArray = levels.Split(',');
+            List<string> levelList = new List<string>(levelArray);
+            int startArrayLength = levelList.Count;
+            levelList.Remove("" + sceneIndex);
+            string json = string.Join(",", levelList.ToArray());
+            PlayerPrefs.SetString(levelStageName, json);
+
+            // if (levelPassed < sceneIndex)
+            // 	PlayerPrefs.SetInt ("LevelPassed", sceneIndex);
+            if (startArrayLength > levelList.Count)
+            {
+                int levelsPassed = PlayerPrefs.GetInt("LevelPassed");
+                PlayerPrefs.SetInt("LevelPassed", levelsPassed + 1);
+            }
         }
 
         passPanel.gameObject.SetActive(true);
@@ -162,7 +179,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("loadNextLevel");
         string levelStageName = GetStageName();
-                switch (levelStageName)
+        // Debug.Log("loadNextLevel stage name for next level " + levelStageName);
+        switch (levelStageName)
         {
             case "firstPlanetLevels":
                 randomizeLevel1();
@@ -175,6 +193,13 @@ public class GameManager : MonoBehaviour
                 break;
             case "fourthPlanetLevels":
                 randomizeLevel4();
+                break;
+            case "fifthPlanetLevels":
+                int levelsToFinish = PlayerPrefs.GetInt("fifthPlanetLevels");
+                levelToLoad(21);
+                break;
+            case "finish":
+                levelToLoad(22);
                 break;
             default:
                 randomizeLevel1();
@@ -356,6 +381,7 @@ public class GameManager : MonoBehaviour
         {
             if (levels == "")
             {
+                PlayerPrefs.SetInt("fifthPlanetLevels", 10);
                 levelToLoad(21);
             }
             else
