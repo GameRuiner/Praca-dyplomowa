@@ -10,7 +10,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 0
+    m_EventTreshold: 4
   - m_ConditionMode: 6
     m_ConditionEvent: ShipSet
     m_EventTreshold: 0
@@ -71,7 +71,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 3
+    m_EventTreshold: 19
   - m_ConditionMode: 6
     m_ConditionEvent: ShipSet
     m_EventTreshold: 3
@@ -337,7 +337,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 1
+    m_EventTreshold: 9
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4639535118543230655}
   m_Solo: 0
@@ -423,7 +423,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 5
+    m_EventTreshold: 29
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6315242606323966164}
   m_Solo: 0
@@ -501,7 +501,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 3
+    m_EventTreshold: 19
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8592862925501931942}
   m_Solo: 0
@@ -551,7 +551,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 5
+    m_EventTreshold: 29
   - m_ConditionMode: 6
     m_ConditionEvent: ShipSet
     m_EventTreshold: 5
@@ -665,7 +665,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 4
+    m_EventTreshold: 24
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 536749000652797950}
   m_Solo: 0
@@ -766,7 +766,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 1
+    m_EventTreshold: 9
   - m_ConditionMode: 6
     m_ConditionEvent: ShipSet
     m_EventTreshold: 1
@@ -821,7 +821,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 2
+    m_EventTreshold: 14
   - m_ConditionMode: 6
     m_ConditionEvent: ShipSet
     m_EventTreshold: 2
@@ -849,7 +849,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 4
+    m_EventTreshold: 24
   - m_ConditionMode: 6
     m_ConditionEvent: ShipSet
     m_EventTreshold: 4
@@ -877,7 +877,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: levelComplete
-    m_EventTreshold: 2
+    m_EventTreshold: 14
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3110089139287725480}
   m_Solo: 0

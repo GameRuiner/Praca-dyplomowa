@@ -43,9 +43,9 @@ public class SelectLevelMenu : MonoBehaviour
         if (levelPassed > 14) {
         	level04Button.interactable = true;
         }
-        // if (levelPassed > 3) {
-        // 	level05Button.interactable = true;
-        // }
+        if (levelPassed > 19) {
+        	level05Button.interactable = true;
+        }
         // if (levelPassed > 4) {
         // 	level06Button.interactable = true;
         // }

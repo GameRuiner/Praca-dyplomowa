@@ -63,33 +63,37 @@ public class GameManager : MonoBehaviour
     {
         string levelStageName = "";
         string levels = PlayerPrefs.GetString("firstPlanetLevels");
+        Debug.Log("get stage name levels firstPlanetLevels: " + levels);
         if (levels != "")
         {
             return "firstPlanetLevels";
         }
-        levels = PlayerPrefs.GetString("secondPlanetLevels");
+        levels = PlayerPrefs.GetString("secondPlanetLevels", "First time");
+        Debug.Log("get stage name levels secondPlanetLevels: " + levels);
         if (levels != "")
         {
             return "secondPlanetLevels";
         }
-        levels = PlayerPrefs.GetString("thirdPlanetLevels");
+        levels = PlayerPrefs.GetString("thirdPlanetLevels", "First time");
         if (levels != "")
         {
             return "thirdPlanetLevels";
         }
-        levels = PlayerPrefs.GetString("fourthPlanetLevels");
+        levels = PlayerPrefs.GetString("fourthPlanetLevels", "First time");
         if (levels != "")
         {
             return "fourthPlanetLevels";
         }
-        int lvls = PlayerPrefs.GetInt("fifthPlanetLevels");
-        if (lvls != 0)
+        int lvls = PlayerPrefs.GetInt("fifthPlanetLevels", 10);
+        Debug.Log("get stage name levels fifthPlanetLevels: " + lvls);
+        if (lvls > 0)
         {
             return "fifthPlanetLevels";
         }
-         else {
+        else
+        {
             return "finish";
-         }
+        }
         return levelStageName;
     }
 
@@ -102,8 +106,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("WaitAndFinishLevel levelStageName " + levelStageName);
         if (levelStageName == "fifthPlanetLevels")
         {
-            int lvls = PlayerPrefs.GetInt("fifthPlanetLevels");
-            int levelsToFinish = PlayerPrefs.GetInt("fifthPlanetLevels");
+            int levelsToFinish = PlayerPrefs.GetInt("fifthPlanetLevels", 10);
+            Debug.Log("waitAndFinishLevel levelsToFinish " + levelsToFinish);
             PlayerPrefs.SetInt("fifthPlanetLevels", levelsToFinish - 1);
         }
         else
@@ -177,9 +181,8 @@ public class GameManager : MonoBehaviour
 
     void LoadNextLevel()
     {
-        Debug.Log("loadNextLevel");
         string levelStageName = GetStageName();
-        // Debug.Log("loadNextLevel stage name for next level " + levelStageName);
+        Debug.Log("loadNextLevel stage name for next level " + levelStageName);
         switch (levelStageName)
         {
             case "firstPlanetLevels":
