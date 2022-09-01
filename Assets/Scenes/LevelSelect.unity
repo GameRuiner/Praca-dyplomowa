@@ -1230,8 +1230,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 524434414}
   m_HandleRect: {fileID: 524434413}
   m_Direction: 2
-  m_Value: 0.0072339587
-  m_Size: 0.4748339
+  m_Value: 0.00723316
+  m_Size: 0.47483373
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1777,7 +1777,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1157298861}
         m_TargetAssemblyTypeName: ClickSound, Assembly-CSharp
         m_MethodName: playClickEffect
@@ -2233,5 +2233,4 @@ MonoBehaviour:
   level03Button: {fileID: 979262197}
   level04Button: {fileID: 1121173029}
   level05Button: {fileID: 1396080043}
-  level06Button: {fileID: 0}
   spaceShipAni: {fileID: 453889141}
