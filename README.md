@@ -19,7 +19,7 @@ Gra jest dostępna na następujące platformy:
 
 ## 🛠️ Technologie
 
-- **Unity** – silnik gry użyty do stworzenia proektu
+- **Unity** – silnik gry użyty do stworzenia proektu
 - **C#** – język programowania wykorzystany do implementacji logik gry
 - **Unity Remote** – użyte do tdo testowania aplikacji
 
